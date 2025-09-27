@@ -1,0 +1,75 @@
+}<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla de Cálculo Avanzada - IO I</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Plantilla de Cálculo para Programación Lineal ⚙️</h1>
+        <p>Simplex | Gran M | Dos Fases</p>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h2>Paso 1: Definir Dimensiones del Problema</h2>
+            <div class="form-group">
+                <label for="num-vars">Número de Variables (X):</label>
+                <input type="number" id="num-vars" value="2" min="1">
+                <label for="num-constraints">Número de Restricciones:</label>
+                <input type="number" id="num-constraints" value="3" min="1">
+                <button id="generate-matrix-btn">Generar Matriz de Entrada</button>
+            </div>
+        </div>
+
+        <div id="problem-input-section" class="card hidden">
+            <h2>Paso 2: Ingresar Datos del Modelo</h2>
+            
+            <div class="objective-section">
+                <div class="form-group objective-type">
+                    <input type="radio" id="maximize" name="objective-type" value="maximize" checked>
+                    <label for="maximize">Maximizar</label>
+                    <input type="radio" id="minimize" name="objective-type" value="minimize">
+                    <label for="minimize">Minimizar</label>
+                </div>
+                <div id="objective-coeffs" class="form-group equation"></div>
+            </div>
+            
+            <hr>
+            <h3>Restricciones</h3>
+            <div id="constraints-grid"></div>
+        </div>
+
+        <div id="solve-section" class="card hidden">
+            <h2>Paso 3: Seleccionar Método y Resolver</h2>
+            <div class="form-group">
+                <label for="solve-method">Método de Solución:</label>
+                <select id="solve-method">
+                    <option value="two-phase">Dos Fases (Recomendado)</option>
+                    <option value="big-m">Gran M</option>
+                    <option value="simplex">Simplex Estándar (Solo para ≤)</option>
+                </select>
+                <button id="solve-btn">Resolver Problema</button>
+            </div>
+        </div>
+
+        <div id="output-section" class="card hidden">
+            <h2>Resultados</h2>
+            <div id="preprocessing-log"></div>
+            <div id="iterations-container"></div>
+            <div id="solution-container"></div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Actividad: Plantilla de cálculo - Investigación de Operaciones I</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
